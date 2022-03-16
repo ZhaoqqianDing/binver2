@@ -80,21 +80,34 @@
         </div>
     </div>
 </main>
-<form action="/UserController/loginUser" method="post" align="center">
-    UserName--：<input type="text" name="UserName" id="UserName"/><br>
-    <br>&nbsp &nbsp</br>
-    Password--：<input type="password" name="Password" id="Password"/><br>
-    <br>&nbsp &nbsp</br>
-    <input type="submit" value="login"/>
-</form>
-<li> &nbsp &nbsp</li>
-<div align="center">
-<a href="/UserController/toIndex">
-    <button align="center">Go back！</button>
-</a>
-</div>
-</body>
+<div class="row">
+    <div class="col-sm-4 p-3" align="right">
+        <h4><strong>Login to enjoy your journey!</strong></h4>
+    </div>
+    <div class="col-sm-4">
+        <form action="/UserController/loginUser" method="post" align="left">
+            <div class="mb-3">
+               <label for="text">UserName:</label>
+               <input type="text" class="form-control" id="text" placeholder="Enter UserName" name="UserName">
+             </div>
+             <div class="mb-3">
+               <label for="pwd">Password:</label>
+               <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+             </div>
+           <button type="submit" class="btn btn-success">Login</button>
+           <a href="/UserController/toIndex">
+            <button class="btn btn-secondary" align="center">Go back！</button>
+           </a>
+       </form>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
 
+</body>
+<style>
+
+</style>
 
 <style>
     @charset "UTF-8";/*!

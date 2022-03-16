@@ -8,7 +8,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Circle</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
 
@@ -80,24 +80,31 @@
         </div>
     </div>
 </main>
-<form action="/UserController/register" method="post" class="RegisterBox" onsubmit="return comparePassword()" align="center">
-    UserName&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp：<input type="text" name="UserName" id="UserName"/><br>
-    <br>&nbsp &nbsp</br>
-    Password&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp：<input type="password" name="Password" id="Password"/><br>
-    <p><font color="red" size="2">Password should be at least 8 characters and no longer than 30 characters,<br>
-    and numbers, uppercase letters, lowercase letters, and special characters</font></p><br>
-
-    Confirm Password：<input type="password" name="ConfirmPassword" id="ConfirmPassword"/><br>
-    <br>&nbsp &nbsp</br>
-    <input type="submit" value="register"/>
-
-</form>
-
-<li> &nbsp &nbsp</li>
-<div align="center">
-    <a href="/UserController/toIndex">
-        <button align="center">Go back！</button>
-    </a>
+<div class="row">
+    <div class="col-sm-4 p-3" align="right">
+        <h4><strong></strong></h4>
+    </div>
+    <div class="col-sm-4">
+        <form action="/UserController/register" method="post" class="RegisterBox" onsubmit="return comparePassword()" align="left">
+            <div class="mb-4">
+            <input type="text" class="form-control" name="UserName" id="UserName" placeholder="Please enter your username">
+            </div>
+            <div class="md-4">
+                <input type="password" class="form-control" placeholder="Type Password" name="Password" id="Password"/>
+                <p><font color="red" size="2">Password should be at least 8 characters and no longer than 30 characters,and numbers, uppercase letters, lowercase letters, and special characters</font></p>
+            </div>
+            <div class="mb-4">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="ConfirmPassword" id="ConfirmPassword"/>
+            </div>
+            <input type="submit" class="btn btn-primary" value="register"></button>
+           <a href="/UserController/toIndex">
+            <button class="btn btn-secondary" align="center">Go back！</button>
+           </a>
+        </form>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
 </div>
 </body>
 
