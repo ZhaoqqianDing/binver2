@@ -83,9 +83,11 @@
 <form action="/UserController/register" method="post" class="RegisterBox" onsubmit="return comparePassword()" align="center">
     UserName&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp：<input type="text" name="UserName" id="UserName"/><br>
     <br>&nbsp &nbsp</br>
-    Password&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp：<input type="text" name="Password" id="Password"/><br>
-    <br>&nbsp &nbsp</br>
-    Confirm Password：<input type="text" name="ConfirmPassword" id="ConfirmPassword"/><br>
+    Password&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp：<input type="password" name="Password" id="Password"/><br>
+    <p><font color="red" size="2">Password should be at least 8 characters and no longer than 30 characters,<br>
+    and numbers, uppercase letters, lowercase letters, and special characters</font></p><br>
+
+    Confirm Password：<input type="password" name="ConfirmPassword" id="ConfirmPassword"/><br>
     <br>&nbsp &nbsp</br>
     <input type="submit" value="register"/>
 
@@ -244,8 +246,7 @@
         }
 
        if (!pwdRegex.test(password.value)) {
-            　　alert("Password should be at least 8 characters and no longer than 30 characters, including at " +
-                  "least one uppercase letter, one lowercase letter, one number and one symbol！");
+            　　alert("Password Format is wrong！");
             return false;
        }
         else{

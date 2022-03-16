@@ -102,7 +102,21 @@ public class UserController {
         log.info("进入界面");
         return "register";
     }
+    @RequestMapping("/toPrivacy")
+    public String toPrivacy(){
 
+        return "privacy";
+    }
+
+    @RequestMapping("/toTerms")
+    public String toTerms(){
+        return "terms";
+    }
+
+    @RequestMapping("/toHelp")
+    public String toHelp(){
+        return "help";
+    }
     @RequestMapping("/toLogIn")
     public String toLogIn(){
         log.info("进入界面");

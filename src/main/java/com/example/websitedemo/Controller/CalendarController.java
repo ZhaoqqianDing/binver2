@@ -47,7 +47,7 @@ public class CalendarController {
         for(int i=0;i<7;i++){
             Calendar c = Calendar.getInstance();
             c.add(Calendar.DATE, i-curDay);
-            String theDate = c.get(Calendar.YEAR)+"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.DATE);
+            String theDate = c.get(Calendar.DATE)+"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.YEAR);
 
             Card theCard = calendarService.getCardByUserIDTime(calendar.getCalendarId()+"",theDate);
             if(theCard!=null){
@@ -55,7 +55,7 @@ public class CalendarController {
             }
             else{
                 Card card = new Card();
-                String cardDate =  c.get(Calendar.YEAR)+"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.DATE);
+                String cardDate =  c.get(Calendar.DATE)+"-"+(c.get(Calendar.MONTH)+1)+"-"+c.get(Calendar.YEAR);
                 card.setStartTime(cardDate);
                 card.setEndTime(cardDate);
                 card.setType("");
@@ -77,7 +77,7 @@ public class CalendarController {
 
 
         }
-        int total=0;
+        double total=0;
         double[] saveNum = new double[3];//Co2 water tree
         for(int i=0;i<7;i++){
             if(thisCalendar[i].getType()!=null && !thisCalendar[i].getType().equals("")){
@@ -90,9 +90,9 @@ public class CalendarController {
                     log.info("do not find the benefit "+e);
                 }
                 if(benefit!=null&&thisCalendar[i].getWeight()!=null && !thisCalendar[i].getWeight().equals("")){
-                    int a =0;
+                    double a =0;
                     try{
-                        a = Integer.valueOf(thisCalendar[i].getWeight());
+                        a = Double.valueOf(thisCalendar[i].getWeight());
                         total= total+a;
                     }
                     catch (Exception e){
@@ -108,9 +108,9 @@ public class CalendarController {
                 continue;
             }
         }
-        String prompt = "This week you dispose "+total+"kg waste.";
-        String prompt2="Your working helps the governments reduce "+saveNum[0]+" kg CO2 emission";
-        String prompt3="And your working is equal to plant "+saveNum[2]+" trees, and save "+saveNum[1]+" kg water!";
+        String prompt = "This week you dispose "+String.format("%.3f", total)+"kg waste.";
+        String prompt2="Your working helps the governments reduce "+String.format("%.3f", saveNum[0])+" kg CO2 emission";
+        String prompt3="And your working is equal to plant "+String.format("%.3f", saveNum[2])+" trees, and save "+String.format("%.3f", saveNum[1])+" kg water!";
         model.addAttribute("prompt",prompt);
         model.addAttribute("prompt2",prompt2);
         model.addAttribute("prompt3",prompt3);
