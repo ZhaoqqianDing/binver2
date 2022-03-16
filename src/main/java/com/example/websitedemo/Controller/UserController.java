@@ -163,8 +163,9 @@ public class UserController {
 
     @RequestMapping("/loginUser")
     public String login(User user, HttpServletRequest request){
-        String userName = user.getUserName();
-        String passWord = user.getPassword();
+        String userName =  CommonUtils.trim(request.getParameter("UserName"));
+        String passWord = CommonUtils.trim(request.getParameter("pwd"));
+        log.info("UserName: "+userName+" Password: "+passWord);
         MD5 md5= new MD5();
         passWord=md5.start(passWord);
         User loginUser =userService.login(userName,passWord);

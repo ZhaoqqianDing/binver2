@@ -23,7 +23,8 @@ public class SessionInterceptor implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         List list = new ArrayList();
         String filter = "/UserController/toIndex;/UserController/loginUser;/UserController/toRegister;/UserController/register;/error;/static/;" +
-                "/UserController/toLogIn;/CommonController/verifyUniqueUser;/**/*.js;/**/*.css;/UserController/toPrivacy;/UserController/toTerms";
+                "/UserController/toLogIn;/CommonController/verifyUniqueUser;" +
+                "/**/*.js;/**/*.css;/UserController/toPrivacy;/UserController/toTerms;/UserController/toHelp";
         String[] filetrArray = filter.split(";");
         list = Arrays.asList(filetrArray);
         registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").excludePathPatterns(list);
